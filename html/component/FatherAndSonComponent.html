@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件</title>
+</head>
+<body>
+
+    <div id="app">
+        <parent-component></parent-component>
+    </div>
+
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    //子组件
+    var child = Vue.extend({
+        template:"<p>This is a child component!</p>"
+    });
+    var parent = Vue.extend({
+        //在父组件中使用子组件
+        template:"<p>This is a Parent component <child-component></child-component></p>",
+        //将子组件注册到父组件中 并设置子组件的标签为 child-component
+        components:{
+            "child-component":child
+        }
+    });
+    //全局注册 父组件，并设置父组件的标签为 parent=component
+    Vue.component("parent-component", parent);
+    //绑定实例
+    new Vue({
+        el:"#app"
+    });
+</script>
+</html>

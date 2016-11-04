@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简化组件的创建与注册</title>
+</head>
+<body>
+
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <div id="local">
+        <my-component-local></my-component-local>
+        <my-component-local1></my-component-local1>
+    </div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    Vue.component("my-component",{
+        template:"<div>This is the first component!</div>"
+    });
+    var vm = new Vue({
+        el:"#app"
+    });
+    var vmLocal = new Vue({
+        el:"#local",
+        components:{
+            //局部注册组件， my-component-local  是标签名称
+            "my-component-local":{
+                template:"<div>This is the second component!</div>"
+            },
+            //局部注册组件， my-component-local1 是标签名称
+            "my-component-local1":{
+                template:"<div>This is the third component!</div>"
+            }
+        },
+    });
+</script>
+</html>

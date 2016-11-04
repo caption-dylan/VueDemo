@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件单个Slot</title>
+    <style>
+        .content{
+            width: 500px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <my-component>
+            <!--这是分发的内容，将会替换组件中的 slot 标签-->
+            <h1>Hello Vue.js</h1>
+        </my-component>
+        <my-component>
+            <!--没有分发的内容，将会原样显示  slot 中的内容-->
+        </my-component>
+    </div>
+
+    <template id="myComponent">
+        <div class="content">
+            <h2>This is a component!</h2>
+            <slot>如果没有分发内容，则显示slot中的内容</slot>
+            <p>Say something...</p>
+        </div>
+    </template>
+
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    Vue.component('my-component',{
+        template:'#myComponent'
+    });
+    new Vue({
+        el:'#app'
+    });
+</script>
+</html>

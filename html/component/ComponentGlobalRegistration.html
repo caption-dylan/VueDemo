@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件注册-全局注册组件方式</title>
+</head>
+<body>
+
+<div id="app">
+    <!-- 3. #app 是vue实例持载的元素，应该在持载元素范围内使用组件-->
+    <my-component></my-component>
+    <my-component></my-component>
+</div>
+<div id="app2">
+    <my-component></my-component>
+</div>
+</body>
+
+<script src="../../js/vue.js"></script>
+<script>
+    // 1. 创建一个组件构造器
+    var myComponent = Vue.extend({
+        template:"<div><div>This is my first component!</div><div>This is my first component!</div></div>"
+    });
+    // 2. 注册组件，并指定组件的标签，组件的html标签为<my-component>
+    /******
+     * 说明
+     * Vue.component  注册组件是全局的，可以在任意Vue示例下使用
+     */
+    Vue.component("my-component", myComponent);
+    new Vue({
+        el:"#app"
+    });
+    new Vue({
+        el:"#app2"
+    });
+</script>
+
+</html>
