@@ -1,5 +1,8 @@
 # VueDemo
 Vue全面Demo示例，有注释说明
+* vue组件
+* vue路由
+
 # 参考网站
 * [vue 官方网站](https://vuefe.cn/ "https://vuefe.cn/")
 * [vue-router 即路由](https://router.vuejs.org/zh-cn/index.html "https://router.vuejs.org/zh-cn/index.html")
